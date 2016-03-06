@@ -42,7 +42,9 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
             musicPlayer = try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
             musicPlayer.prepareToPlay()
             musicPlayer.numberOfLoops = -1
-            musicPlayer.play()
+            
+//            musicPlayer.play()
+            
             
         }catch let err as NSError{
             print(err.debugDescription)
@@ -127,7 +129,7 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSizeMake(105, 105)
+        return CGSizeMake(85, 85)
     }
     
     @IBAction func musicBtnPressed(sender: UIButton!) {
