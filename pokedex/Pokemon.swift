@@ -99,7 +99,7 @@ class Pokemon{
     var pokedexId: Int {
         return _pokedexId
     }
-
+    
     
     init(name:String,pokedexId:Int){
         _name = name
@@ -170,9 +170,9 @@ class Pokemon{
                             if let descDict = desResult.value as? Dictionary<String,AnyObject>{
                                 
                                 if let description = descDict["description"] as? String{
-                                   
+                                    
                                     self._description = description
-                                   print(self._description)
+                                    print(self._description)
                                 }
                             }
                             completed()
@@ -201,23 +201,25 @@ class Pokemon{
                                     if let lvl = evolutions[0]["level"] as? Int {
                                         self._nextEvolutionLvl = "\(lvl)"
                                     }
-                                    if let stone = evolutions[0]["method"] as? String{
-                                        self._nextEvolutionLvl = stone.capitalizedString
+                                    else {
+                                        if let stone = evolutions[0]["method"] as? String{
+                                            self._nextEvolutionLvl = stone.capitalizedString
+                                        }
+                                        
+                                        print(self._nextEvolutionId)
+                                        print(self._nextEvolutionTxt)
+                                        print(self._nextEvolutionLvl)
+                                        
                                     }
-                                    
-                                    print(self._nextEvolutionId)
-                                    print(self._nextEvolutionTxt)
-                                    print(self._nextEvolutionLvl)
-                                    
                                 }
+                                
                             }
                             
                         }
-                        
                     }
+                    
+                    //print(result.value.debugDescription)
                 }
-                
-                //print(result.value.debugDescription)
             }
         }
     }

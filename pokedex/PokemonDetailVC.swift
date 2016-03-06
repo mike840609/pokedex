@@ -62,9 +62,20 @@ class PokemonDetailVC: UIViewController {
             var str = "Next Evolution: \(pokemon.nextEvolutionTxt)"
             
             
-            if pokemon.nextEvolutionLvl != "" {
-                str += " - LVL \(pokemon.nextEvolutionLvl)"
-                evoLbl.text = str
+            if pokemon.nextEvolutionLvl != ""  {
+                
+                if analizeEvoLv(pokemon.nextEvolutionLvl){
+                
+                    str += " - LVL \(pokemon.nextEvolutionLvl)"
+                    evoLbl.text = str
+                    
+                }
+                else{
+                    str += "- Method \(pokemon.nextEvolutionLvl)"
+                    evoLbl.text = str
+                
+                }
+                
             }
         }
         
@@ -75,5 +86,16 @@ class PokemonDetailVC: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
    
-
+    
+    func analizeEvoLv(evo:String)->Bool{
+        print(evo)
+        
+        
+        for index in 1...10{
+            if evo.containsString("\(index)"){
+                return true
+            }
+        }
+        return false
+    }
 }
