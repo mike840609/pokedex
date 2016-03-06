@@ -201,6 +201,9 @@ class Pokemon{
                                     if let lvl = evolutions[0]["level"] as? Int {
                                         self._nextEvolutionLvl = "\(lvl)"
                                     }
+                                    if let stone = evolutions[0]["method"] as? String{
+                                        self._nextEvolutionLvl = stone.capitalizedString
+                                    }
                                     
                                     print(self._nextEvolutionId)
                                     print(self._nextEvolutionTxt)
